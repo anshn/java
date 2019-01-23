@@ -1,0 +1,27 @@
+import java.util.HashMap;
+
+public class LambdaExample {
+	public interface Logistics{
+		int calculate_weight(HashMap<Integer,Integer> shipment);
+	}
+	
+	public static void main(String[] args) {
+		HashMap<Integer,Integer> shipment = new HashMap<Integer,Integer>();
+		shipment.put(101,10);
+		shipment.put(102,20);
+		shipment.put(103,30);
+		shipment.put(104,40);
+		Logistics log1 = (shipments) -> {
+			for(int i: shipments.keySet())
+				System.out.println("Shipmentid:"+i+" having weight:"+ shipment.get(i));
+			int sum =0;
+			for(int i: shipments.keySet()) {
+				sum = sum + shipments.get(i);
+			}
+			return sum;
+		};
+		System.out.println("Total weight:"+ log1.calculate_weight(shipment));
+
+	}
+
+}
